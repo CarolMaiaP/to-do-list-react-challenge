@@ -1,0 +1,137 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 4.063rem 0 1.5rem;
+}
+
+.createdTasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.createdTasks p {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.createdTasks span,
+.completedTasks span {
+  padding: 2px 8px;
+  background: var(--gray-400);
+  color: var(--white-200);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 15px;
+}
+
+.completedTasks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.completedTasks p {
+  color: var(--purple);
+}
+
+.emptyTaskList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #333;
+  border-radius: 8px;
+}
+
+.emptyTaskList img {
+  width: 3.5rem;
+  padding: 4rem 0 1rem;
+}
+
+.emptyTaskList p {
+  line-height: 140%;
+  color: var(--gray-300);
+}
+
+.task {
+  background: var(--gray-500);
+  display: flex;
+  align-items: start;
+  padding: 1rem;
+  gap: 2.4rem;
+  border-radius: 8px;
+  color: var(--gray-300);
+}
+
+.check {
+  position: relative;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.check:hover input ~ .checkbox {
+  background: var(--purple-dark);
+}
+
+.check input:checked ~ .checkbox {
+  background: var(--purple-dark);
+}
+
+.check .checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 0.438rem;
+  top: 0.188rem;
+  width: 0.313rem;
+  height: 0.625rem;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.check input:checked ~ .checkbox:after {
+  display: block;
+}
+
+.task p {
+  color: var(--white-200);
+  text-decoration: none;
+}
+
+.check input:checked ~ p {
+  text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+  width: 0;
+  height: 0;
+}
+
+.checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background: transparent;
+  border-radius: 50px;
+  border: 2px solid var(--blue);
+  cursor: pointer;
+}
+
+.removeTask {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--gray-300);
+  line-height: 0;
+}
+
+.removeTask:hover {
+  color: var(--red);
+}
