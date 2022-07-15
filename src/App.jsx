@@ -1,7 +1,13 @@
 import styles from './App.module.css'
+import { CreateTask } from './components/createTask'
 import { Header } from './components/Header'
-import { ListTasks } from './components/ListTasks'
-import { Task } from './components/Task'
+import { TaskList } from './components/TaskList'
+
+
+//id
+//isCompleted:boolean
+//task: string
+//delete
 
 
 export function App() {
@@ -9,8 +15,7 @@ export function App() {
     <div>
       <Header/>
       <div  className={styles.wrapper}>
-        <Task/>
-        <ListTasks/>
+        <CreateTask/>
       </div>
     </div>
   )

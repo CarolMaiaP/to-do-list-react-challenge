@@ -14,6 +14,7 @@ input[type="text"] {
   border-radius: 8px;
   border: 1px solid var(--gray-700);
   background: var(--gray-500);
+  color: var(--white-200);
 }
 
 input[type="text"]::placeholder {
@@ -35,4 +36,45 @@ input[type="text"]::placeholder {
 
 .newTask button:hover {
   opacity: 0.9;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 4.063rem 0 1.5rem;
+}
+
+.createdTasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.createdTasks p {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.createdTasks span,
+.completedTasks span {
+  padding: 2px 8px;
+  background: var(--gray-400);
+  color: var(--white-200);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 15px;
+}
+
+.completedTasks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.completedTasks p {
+  color: var(--purple);
+}
+
+.list {
 }

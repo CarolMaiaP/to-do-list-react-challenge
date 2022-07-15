@@ -1,18 +1,10 @@
+import styles from './TaskList.module.css';
 import clipboard from '../assets/clipboard.svg';
-import styles from './ListTasks.module.css';
 import {Trash} from 'phosphor-react';
 
-export function ListTasks(){
+export function TaskList(){
   return(
     <div>
-      <header className={styles.header}>
-        <div className={styles.createdTasks}>
-          <p>Tarefas criadas</p><span>0</span>
-        </div>
-        <div className={styles.completedTasks}>
-          <p>Concluídas</p><span>0</span>
-        </div>
-      </header>
 
       <div className={styles.emptyTaskList}>
         <img src={clipboard}/>
@@ -31,6 +23,6 @@ export function ListTasks(){
           <Trash size={18}/>
         </button>
       </div>
-    </div> 
+    </div>
   )
 }
