@@ -1,19 +1,25 @@
 import styles from './CreateTask.module.css';
 import {PlusCircle} from 'phosphor-react';
 import { TaskList } from './TaskList';
-
-
-const tasks = [
-  1,
-  2,
-  3,
-  4,
-];
+import { useState } from 'react';
 
 export function CreateTask(){
+
+  const [tasks, setTasks] = useState([
+    1,
+    2,
+    3,
+    4,
+  ])
+
+  function handleNewTask(){
+    event.preventDefault();
+    setTasks([1, 2, 3, 4, 5])
+  }
+
   return(
     <div>
-      <form className={styles.newTask}>
+      <form onSubmit={handleNewTask} className={styles.newTask}>
         <input type="text" placeholder="Adicione uma nova tarefa"/>
         <button type="submit">Criar<PlusCircle size={18}/></button>
       </form>
