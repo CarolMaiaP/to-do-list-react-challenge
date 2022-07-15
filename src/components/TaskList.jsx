@@ -2,7 +2,7 @@ import styles from './TaskList.module.css';
 import clipboard from '../assets/clipboard.svg';
 import {Trash} from 'phosphor-react';
 
-export function TaskList(){
+export function TaskList(props){
   return(
     <div>
 
@@ -16,7 +16,7 @@ export function TaskList(){
         <label className={styles.check}>
           <input type="checkbox" />
           <span className={styles.checkbox}></span>
-          <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
+          <p>{props.content}</p>
         </label>
         
         <button className={styles.removeTask}>

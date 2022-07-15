@@ -6,21 +6,26 @@ import { useState } from 'react';
 export function CreateTask(){
 
   const [tasks, setTasks] = useState([
-    1,
-    2,
-    3,
-    4,
+    'Estudar React'
   ])
+
+  const [newTaskText, setNewTaskText] = useState('');
 
   function handleNewTask(){
     event.preventDefault();
-    setTasks([1, 2, 3, 4, 5])
+
+    setTasks([...tasks, newTaskText]);
+    setNewTaskText('');
+  }
+
+  function handleNewTaskChange(){
+    setNewTaskText(event.target.value);
   }
 
   return(
     <div>
       <form onSubmit={handleNewTask} className={styles.newTask}>
-        <input type="text" placeholder="Adicione uma nova tarefa"/>
+        <input type="text" placeholder="Adicione uma nova tarefa" value={newTaskText} name='newTask' onChange={handleNewTaskChange}/>
         <button type="submit">Criar<PlusCircle size={18}/></button>
       </form>
 
@@ -35,7 +40,7 @@ export function CreateTask(){
 
       <div className={styles.list}>
         {tasks.map( task => {
-          return <TaskList/>
+          return <TaskList content={task}/>
         })}
       </div>
     </div>
