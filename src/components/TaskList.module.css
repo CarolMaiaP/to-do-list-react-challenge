@@ -28,10 +28,7 @@
   border-radius: 8px;
   color: var(--gray-300);
   margin-bottom: 0.75rem;
-}
-
-label {
-  width: 90%;
+  justify-content: space-between;
 }
 
 .check {

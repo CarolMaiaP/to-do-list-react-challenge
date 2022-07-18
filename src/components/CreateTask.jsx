@@ -10,10 +10,10 @@ export function CreateTask(){
   ])
 
   const [newTaskText, setNewTaskText] = useState('');
-
-  function handleNewTask(){
+  
+  function handleCreateNewTask(){
     event.preventDefault();
-
+    
     setTasks([...tasks, newTaskText]);
     setNewTaskText('');
   }
@@ -22,10 +22,19 @@ export function CreateTask(){
     setNewTaskText(event.target.value);
   }
 
+  function deleteTask(taskToDelete){
+    const commentsWithoutDeletedOne = tasks.filter(task =>{
+      return task !== taskToDelete;
+    })
+    
+    setTasks(commentsWithoutDeletedOne);
+  }
+
   return(
     <div>
-      <form onSubmit={handleNewTask} className={styles.newTask}>
-        <input type="text" placeholder="Adicione uma nova tarefa" value={newTaskText} name='newTask' onChange={handleNewTaskChange}/>
+      <form onSubmit={handleCreateNewTask} className={styles.newTask}>
+        <input type="text" placeholder="Adicione uma nova tarefa" name='newTask' onChange={handleNewTaskChange} value={newTaskText}
+        />
         <button type="submit">Criar<PlusCircle size={18}/></button>
       </form>
 
@@ -40,7 +49,7 @@ export function CreateTask(){
 
       <div className={styles.list}>
         {tasks.map( task => {
-          return <TaskList content={task}/>
+          return <TaskList key={task} content={task} onDeleteTask={deleteTask}/>
         })}
       </div>
     </div>
