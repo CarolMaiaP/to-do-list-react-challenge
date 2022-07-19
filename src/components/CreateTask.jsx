@@ -4,18 +4,27 @@ import { TaskList } from './TaskList';
 import { useState } from 'react';
 
 export function CreateTask(){
-
+  
   const [tasks, setTasks] = useState([
     'Estudar React'
   ])
 
   const [newTaskText, setNewTaskText] = useState('');
+
+  const [countTask, setCountTask] = useState('1');
   
   function handleCreateNewTask(){
     event.preventDefault();
     
     setTasks([...tasks, newTaskText]);
+    
+    handleCounters()
+
     setNewTaskText('');
+  }
+
+  function handleCounters() {
+    setCountTask(tasks.length + 1)
   }
 
   function handleNewTaskChange(){
@@ -40,10 +49,10 @@ export function CreateTask(){
 
       <header className={styles.header}>
         <div className={styles.createdTasks}>
-          <p>Tarefas criadas</p><span>0</span>
+          <p>Tarefas criadas</p><span>{countTask}</span>
         </div>
         <div className={styles.completedTasks}>
-          <p>Concluídas</p><span>0</span>
+          <p>Concluídas</p><span>0 de {countTask}</span>
         </div>
       </header>
 
